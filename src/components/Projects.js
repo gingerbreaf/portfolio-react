@@ -8,6 +8,7 @@ import './Projects.css';
 import feelingsOverflowImage from '../assets/5864 (1).png';
 import tetherImage from '../assets/tether.png';
 import jerryImage from '../assets/Jerry.jpeg';
+import premierDictionsImage from '../assets/premier-dictions.png';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -36,6 +37,20 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "Premier-Dictions",
+      description: "A premier league prediction app to be published by August 2025. An iOS application built with Swift and SwiftUI, featuring AWS and Firebase integration.",
+      image: premierDictionsImage, // Using a placeholder image for now
+      technologies: ["Swift", "SwiftUI", "AWS", "Firebase", "iOS Development"],
+      links: [
+        {
+          name: "Coming Soon",
+          url: "#",
+          icon: <FaExternalLinkAlt />,
+          type: "external"
+        }
+      ]
+    },
+    {
       title: "Feelings Overflow",
       description: "A mobile application built with Flutter and Firebase as part of NUS Orbital Programme 2023. This project has achieved Apollo Level.",
       image: feelingsOverflowImage,
@@ -52,18 +67,6 @@ const Projects = () => {
           url: "https://github.com/gingerbreaf/Feelings_Overflow.git",
           icon: <FaGithub />,
           type: "external"
-        },
-        {
-          name: "Project Overview",
-          url: "/src/assets/Stack_underflow-MS3-README.pdf",
-          icon: <FaDownload />,
-          type: "download"
-        },
-        {
-          name: "Certificate",
-          url: "/src/assets/Oribital Certificate.pdf",
-          icon: <FaDownload />,
-          type: "download"
         }
       ]
     },
