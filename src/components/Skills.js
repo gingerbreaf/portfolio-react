@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import './Skills.css';
@@ -25,6 +25,7 @@ import tensorflowLogo from '../assets/logos/tensorflow.png';
 import pytorchLogo from '../assets/logos/pytorch.png';
 
 const Skills = () => {
+  const [activeTab, setActiveTab] = useState('languages');
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true
@@ -49,8 +50,8 @@ const Skills = () => {
     }
   };
 
-  const skillCategories = [
-    {
+  const skillCategories = {
+    languages: {
       title: "Languages",
       skills: [
         { name: "Java", icon: javaLogo },
@@ -60,7 +61,7 @@ const Skills = () => {
         { name: "Swift", icon: swiftLogo }
       ]
     },
-    {
+    frontend: {
       title: "Frontend",
       skills: [
         { name: "Flutter", icon: flutterLogo },
@@ -70,7 +71,7 @@ const Skills = () => {
         { name: "CSS", icon: cssLogo }
       ]
     },
-    {
+    backend: {
       title: "Backend",
       skills: [
         { name: "Firebase", icon: firebaseLogo },
@@ -79,7 +80,7 @@ const Skills = () => {
         { name: "DynamoDB", icon: dynamodbLogo }
       ]
     },
-    {
+    dataScience: {
       title: "Data Science & ML",
       skills: [
         { name: "Scikit-learn", icon: scikitlearnLogo },
@@ -89,7 +90,18 @@ const Skills = () => {
         { name: "PyTorch", icon: pytorchLogo }
       ]
     }
+  };
+
+  const tabs = [
+    { id: 'languages', label: 'Languages' },
+    { id: 'frontend', label: 'Frontend' },
+    { id: 'backend', label: 'Backend' },
+    { id: 'dataScience', label: 'Data Science & ML' }
   ];
+
+  const handleTabClick = (tabId) => {
+    setActiveTab(tabId);
+  };
 
   return (
     <section id="skills" className="section skills-section">
@@ -105,35 +117,48 @@ const Skills = () => {
           </motion.h2>
           
           <div className="skills-container">
-            {skillCategories.map((category, categoryIndex) => (
-              <motion.div
-                key={category.title}
-                className="skill-category"
-                variants={itemVariants}
-              >
-                <h3 className="category-title">{category.title}</h3>
-                <div className="skills-grid">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill.name}
-                      className="skill-item"
-                      whileHover={{ 
-                        scale: 1.05,
-                        rotateY: 5,
-                        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                    >
-                      <div className="skill-icon">
-                        <img src={skill.icon} alt={skill.name} />
-                      </div>
-                      <p className="skill-name">{skill.name}</p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+            {/* Tab Navigation */}
+            <motion.div className="skills-tabs" variants={itemVariants}>
+              {tabs.map((tab) => (
+                <motion.button
+                  key={tab.id}
+                  className={`skill-tab ${activeTab === tab.id ? 'active' : ''}`}
+                  onClick={() => handleTabClick(tab.id)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <span>{tab.label}</span>
+                </motion.button>
+              ))}
+            </motion.div>
+
+            {/* Skills Grid */}
+            <div className="skills-content">
+              <div className="skills-grid">
+                {skillCategories[activeTab].skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    className="skill-item"
+                    whileHover={{ 
+                      scale: 1.05,
+                      rotateY: 5,
+                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ 
+                      type: "spring", 
+                      stiffness: 300 
+                    }}
+                  >
+                    <div className="skill-icon">
+                      <img src={skill.icon} alt={skill.name} />
+                    </div>
+                    <p className="skill-name">{skill.name}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

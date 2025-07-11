@@ -5,32 +5,75 @@
 .skills-container {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
 }
 
-.skill-category {
+/* Tab Navigation Styles */
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
 }
 
-.category-title {
-  font-size: 1.5rem;
+.skill-tab {
+  padding: 12px 24px;
+  border: 2px solid #e9ecef;
+  background: white;
+  color: #6c757d;
+  border-radius: 25px;
   font-weight: 600;
-  color: #2d3436;
-  margin-bottom: 30px;
-  text-align: center;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
   position: relative;
+  overflow: hidden;
 }
 
-.category-title::after {
+.skill-tab::before {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 3px;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(135deg, #00b894, #00a884);
-  border-radius: 2px;
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.skill-tab:hover::before {
+  left: 0;
+}
+
+.skill-tab:hover {
+  border-color: #00b894;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+}
+
+.skill-tab.active {
+  background: linear-gradient(135deg, #00b894, #00a884);
+  color: white;
+  border-color: #00b894;
+  box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
+}
+
+.skill-tab.active::before {
+  left: 0;
+}
+
+.skill-tab span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Skills Content */
+.skills-content {
+  min-height: 300px;
 }
 
 .skills-grid {
@@ -105,9 +148,20 @@
   color: #00b894;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .skills-container {
-    gap: 40px;
+    gap: 30px;
+  }
+  
+  .skills-tabs {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .skill-tab {
+    padding: 10px 18px;
+    font-size: 0.85rem;
   }
   
   .skills-grid {
@@ -131,6 +185,17 @@
 }
 
 @media (max-width: 480px) {
+  .skills-tabs {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .skill-tab {
+    width: 200px;
+    justify-content: center;
+  }
+  
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 15px;

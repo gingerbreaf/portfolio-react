@@ -34,9 +34,9 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "iOS Developer Intern",
+      title: "Software Engineer Intern",
       company: "SP Group",
-      period: "January 2025 - Present",
+      period: "January 2025 - June 2025",
       logo: spGroupLogo,
       responsibilities: [
         "Interned primarily as an iOS developer, worked on the SP app (4.6/5 stars, 10k ratings on the iOS App Store)",
