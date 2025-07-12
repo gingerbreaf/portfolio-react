@@ -26,6 +26,7 @@ import pytorchLogo from '../assets/logos/pytorch.png';
 import reactLogo from '../assets/logos/react.png';
 import dockerLogo from '../assets/logos/docker.png';
 import gitLogo from '../assets/logos/git.png';
+import golangLogo from '../assets/logos/golang.png';
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('languages');
@@ -62,7 +63,8 @@ const Skills = () => {
         { name: "Dart", icon: dartLogo },
         { name: "Javascript", icon: jsLogo },
         { name: "Swift", icon: swiftLogo },
-        { name: "Git", icon: gitLogo }
+        { name: "Git", icon: gitLogo },
+        { name: "Go", icon: golangLogo }
       ]
     },
     frontend: {
