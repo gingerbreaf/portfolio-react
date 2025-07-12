@@ -10,6 +10,16 @@ import tetherImage from '../assets/tether.png';
 import jerryImage from '../assets/Jerry.jpeg';
 import premierDictionsImage from '../assets/premier-dictions.png';
 
+// Import tech logos
+import swiftLogo from '../assets/logos/swift.png';
+import swiftuiLogo from '../assets/logos/swiftui.png';
+import awsLogo from '../assets/logos/aws.png';
+import firebaseLogo from '../assets/logos/firebase.png';
+import flutterLogo from '../assets/logos/flutter.png';
+import dartLogo from '../assets/logos/dart.jpeg';
+import javaLogo from '../assets/logos/java.png';
+import javafxLogo from '../assets/logos/javafx.png'; // Using Java logo for JavaFX
+
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.2,
@@ -39,8 +49,13 @@ const Projects = () => {
     {
       title: "Premier-Dictions",
       description: "A premier league prediction app to be published by August 2025. An iOS application built with Swift and SwiftUI, featuring AWS and Firebase integration.",
-      image: premierDictionsImage, // Using a placeholder image for now
-      technologies: ["Swift", "SwiftUI", "AWS", "Firebase", "iOS Development"],
+      image: premierDictionsImage,
+      technologies: [
+        { name: "Swift", logo: swiftLogo },
+        { name: "SwiftUI", logo: swiftuiLogo },
+        { name: "AWS", logo: awsLogo },
+        { name: "Firebase", logo: firebaseLogo }
+      ],
       links: [
         {
           name: "Coming Soon",
@@ -54,7 +69,11 @@ const Projects = () => {
       title: "Feelings Overflow",
       description: "A mobile application built with Flutter and Firebase as part of NUS Orbital Programme 2023. This project has achieved Apollo Level.",
       image: feelingsOverflowImage,
-      technologies: ["Flutter", "Firebase", "Mobile Development"],
+      technologies: [
+        { name: "Flutter", logo: flutterLogo },
+        { name: "Dart", logo: dartLogo },
+        { name: "Firebase", logo: firebaseLogo }
+      ],
       links: [
         {
           name: "Download APK",
@@ -74,7 +93,10 @@ const Projects = () => {
       title: "Tether",
       description: "A desktop application built with JavaFX and Java. It is an Applicant Tracking System (ATS) designed for HR managers.",
       image: tetherImage,
-      technologies: ["Java", "JavaFX", "Desktop Application"],
+      technologies: [
+        { name: "Java", logo: javaLogo },
+        { name: "JavaFX", logo: javafxLogo }
+      ],
       links: [
         {
           name: "Source Code",
@@ -100,7 +122,10 @@ const Projects = () => {
       title: "Jerry",
       description: "A chatbot built with Java that helps users keep track of tasks. Integrated with a Graphical User Interface using JavaFX.",
       image: jerryImage,
-      technologies: ["Java", "JavaFX", "Chatbot"],
+      technologies: [
+        { name: "Java", logo: javaLogo },
+        { name: "JavaFX", logo: javafxLogo }
+      ],
       links: [
         {
           name: "Source Code",
@@ -144,9 +169,9 @@ const Projects = () => {
                   
                   <div className="project-technologies">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="tech-tag">
-                        {tech}
-                      </span>
+                      <div key={techIndex} className="tech-logo-container" title={tech.name}>
+                        <img src={tech.logo} alt={tech.name} className="tech-logo" />
+                      </div>
                     ))}
                   </div>
                   

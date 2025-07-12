@@ -63,8 +63,8 @@ const About = () => {
             
             <motion.div className="about-stats" variants={itemVariants}>
               <div className="stat-item">
-                <h3>4.21</h3>
-                <p>GPA</p>
+                <h3>Honours (Distinction)</h3>
+                <p>Classification</p>
               </div>
               <div className="stat-item">
                 <h3>3+</h3>

@@ -131,6 +131,70 @@
   margin-bottom: 0;
 }
 
+.tech-used-section {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.tech-used-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d3436;
+  margin-bottom: 15px;
+}
+
+.tech-used-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.tech-logo-container {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tech-logo {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  filter: grayscale(20%);
+}
+
+.tech-logo-container:hover .tech-logo {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.tech-logo-container:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .experience-timeline::before {
     left: 30px;

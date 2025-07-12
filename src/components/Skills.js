@@ -23,6 +23,9 @@ import numpyLogo from '../assets/logos/numpy.png';
 import pandasLogo from '../assets/logos/pandas.png';
 import tensorflowLogo from '../assets/logos/tensorflow.png';
 import pytorchLogo from '../assets/logos/pytorch.png';
+import reactLogo from '../assets/logos/react.png';
+import dockerLogo from '../assets/logos/docker.png';
+import gitLogo from '../assets/logos/git.png';
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState('languages');
@@ -58,7 +61,8 @@ const Skills = () => {
         { name: "Python", icon: pythonLogo },
         { name: "Dart", icon: dartLogo },
         { name: "Javascript", icon: jsLogo },
-        { name: "Swift", icon: swiftLogo }
+        { name: "Swift", icon: swiftLogo },
+        { name: "Git", icon: gitLogo }
       ]
     },
     frontend: {
@@ -67,6 +71,7 @@ const Skills = () => {
         { name: "Flutter", icon: flutterLogo },
         { name: "SwiftUI", icon: swiftuiLogo },
         { name: "UIKit", icon: uikitLogo },
+        { name: "React", icon: reactLogo },
         { name: "HTML5", icon: html5Logo },
         { name: "CSS", icon: cssLogo }
       ]
@@ -77,7 +82,8 @@ const Skills = () => {
         { name: "Firebase", icon: firebaseLogo },
         { name: "PostgreSQL", icon: postgresqlLogo },
         { name: "AWS", icon: awsLogo },
-        { name: "DynamoDB", icon: dynamodbLogo }
+        { name: "DynamoDB", icon: dynamodbLogo },
+        { name: "Docker", icon: dockerLogo }
       ]
     },
     dataScience: {

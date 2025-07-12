@@ -71,7 +71,7 @@ const Hero = () => {
             variants={textVariants}
           >
             <motion.a
-              href="https://drive.google.com/file/d/15YrKRnWhbEB2haW33EtAGoZhsWHyS6zo/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1_DTL0DyXOVW7Xek5dCdH9HHFbwYw_ODz/view?usp=drive_link"
               className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
